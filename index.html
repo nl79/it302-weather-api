@@ -22,9 +22,11 @@
 
     <div data-role="content">
 
+        <p id="p-message" hidden >test message</p>
+
         <fieldset class="ui-grid-a">
             <div class="ui-block-a">
-                <input class="input-search" type="search"
+                <input id="input-zipcode" class="input-search" type="search"
                        name="password" id="search" value=""
                        data-theme="a" placeholder="Enter Zipcode"/>
 
@@ -32,12 +34,12 @@
 
             <div class="ui-block-b">
                 <label for="search">
-                    <a href="#" class="button-search" data-role="button" data-theme="a" data-icon="search" >Load Weather</a>
+                    <a id='a-submit' href="#" class="button-search" data-role="button" data-theme="a" data-icon="search" >Load Weather</a>
                 </label>
             </div>
         </fieldset>
 
-        <div data-role="collapsible-set"data-theme="a">
+        <div id='div-content' data-role="collapsible-set"data-theme="a">
 
             <div data-role="collapsible" data-collapsed="false">
                 <h3>Section 1</h3>
@@ -51,8 +53,6 @@
 
         </div>
     </div><!-- /content -->
-
-
 
 </div><!-- /page -->
 
