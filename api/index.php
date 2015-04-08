@@ -32,22 +32,25 @@ if(!is_null($zipcode)) {
     $json = json_decode($res, true);
 
     if(!is_null($json)) {
-        $output['StatusCode'] = 200;
+
+        $output['statusCode'] = 200;
         $output['type'] = 'data';
         $output['data'] = $json;
+
     } else {
-        $output['StatusCode'] = 400;
-        $output['type'] = 'message';
+
+        $output['statusCode'] = 400;
+        $output['type'] = 'error';
         $output['message'] = 'Failed failed to retrieve the weather ojbect. Please make sure the zipcode provided is valid';
     }
 
 } else {
-    $output['StatusCode'] = 400;
-    $output['type'] = 'message';
+
+    $output['statusCode'] = 400;
+    $output['type'] = 'error';
     $output['message'] = 'Invalid Zipcode Supplied';
 
 }
-
 
 echo(json_encode($output));
 exit;
