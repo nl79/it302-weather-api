@@ -5,3 +5,38 @@ input.input-search {
 a#a-submit {
     font-size: 140%;
 }
+div.div-current {
+    padding: 15px;
+
+}
+div.div-day {
+    border: 1px solid aquamarine;
+}
+
+div.div-daytime {
+    background-color: #FAFAD2;
+
+}
+
+div.div-nighttime {
+    background-color: #778899;
+    color: white;
+
+}
+
+div.div-container {
+    padding: 15px;
+    opacity: 0.6;
+}
+
+.float-left {
+    float: left;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.clear-both {
+    clear: both;
+}

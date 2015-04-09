@@ -67,9 +67,10 @@ function render(data) {
 
     /*build the html*/
     var html = '<div id="' + data.weather.zipcode + '" data-role="collapsible"><h3>' + data.weather.zipcode + '</h3><p>';
-    html += '<div class="div-current">';
+    html += '<div class="div-current float-left">';
+    html += "<h2>Current</h2>";
     html += '<h2>' + data.weather.zipcode + '</h2>';
-    html += '<h2>' + objCurrent['temp'] + ' - ' + objCurrent['temp_unit'] + '</h2>';
+    html += '<h2>' + objCurrent['temp'] + '&deg; ' + objCurrent['temp_unit'].toUpperCase() + '</h2>';
     html += '<h4>Precip: ' + objCurrent['humidity'] + '%</h4>';
     html += '<h4>Pressure:  ' + objCurrent['pressure'] + '</h4>';
     html += "</div>";
@@ -83,14 +84,31 @@ function render(data) {
             var day = arrForecast[i];
 
             /* div for each day */
-            html += "<div class='div-day'>";
+            html += "<div class='div-day float-left'>";
+
             html += "<h2>" + day.date + "</h2>";
-            html += "<h3>Day Max Temp: " + day['day_max_temp'] + "</h3>";
+
+            /*daytime info*/
+            html += "<div class='div-daytime div-container inline-block'>"
+            html += "<h3 class='h3-day'>High (Day): " + day['day_max_temp'] + "&deg; (" + day['temp_unit'].toUpperCase() + ")</h4>";
+            html += "<h4>" + day.day[0].weather_text + "</h2>";
+            html += "<h4>Winds: " + day.day[0].wind[0].dir + " " + day.day[0].wind[0].speed + " " + day.day[0].wind[0].wind_unit + "</h4>";
             html += "</div>";
+
+            /*night time info */
+            html += "<div class='div-nighttime div-container inline-block'>"
+            html += "<h3 class='h3-night'>Low (Night): " + day['night_min_temp']+ "&deg; (" + day['temp_unit'].toUpperCase() + ")</h3>";
+            html += "<h4>" + day.night[0].weather_text + "</h2>";
+            html += "<h4>Winds: " + day.night[0].wind[0].dir + " " + day.night[0].wind[0].speed + " " + day.night[0].wind[0].wind_unit + "</h4>";
+            html += "</div>";
+
+            html += "</div>";
+
+
         }
     }
 
-    html += "</div>";
+    html += "</div><div class='clear-both'></div>";
 
     html += "</p></div>";
 
