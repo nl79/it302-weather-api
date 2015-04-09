@@ -13,9 +13,16 @@ function validate() {
         zipcode == '' || zipcode.length != 5 || isNaN(zipcode)) {
 
         message('Invalid Zipcode Value Supplied', 1500);
-
         return;
     }
+
+    /* validate that data for the current zipcode is not already showing */
+    if($('div#' + zipcode).length != 0) {
+        message('Weather Data for Zipcode:' + zipcode + " is already loaded", 1500);
+        return;
+    }
+
+
 
     /* if the data is valid, issues an ajax call to the weather api */
 
